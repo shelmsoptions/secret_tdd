@@ -1,0 +1,17 @@
+<h1>Hello <%= @user.name %></h1>
+<p><%= link_to "Edit Profile", edit_user_url %></p>
+
+<p>
+  <% @secrets.each do |secret| %>
+  <p>
+    <%= secret.content %>
+  </p>
+  <% end %>
+</p>
+<h3>New Secret</h3>
+<form action="/secrets" method="post">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  <label for="content">Content: </label>
+  <input type="text" name="new_secret">
+  <button type="submit" name="create_secret">Create Secret</button>
+</form>
