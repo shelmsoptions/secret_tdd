@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   resources :sessions
 
+  # delete '/secrets/:id' => 'secrets#destroy'
+
   resources :secrets
 
 end

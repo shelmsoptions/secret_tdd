@@ -6,6 +6,11 @@
   <p>
     <%= secret.content %>
   </p>
+  <form class="" action="/secrets/<%= secret.id %>" method="post">
+    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+    <input name="_method" value="delete" type="hidden">
+    <button>Delete</button>
+  </form>
   <% end %>
 </p>
 <h3>New Secret</h3>
