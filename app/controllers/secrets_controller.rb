@@ -1,4 +1,6 @@
 class SecretsController < ApplicationController
+  before_action :require_login, only: [:index, :create, :destroy]
+
   def create
     @secret = Secret.new(content: params[:new_secret], user: current_user)
     if @secret.save

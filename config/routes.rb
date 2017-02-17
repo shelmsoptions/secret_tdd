@@ -13,4 +13,6 @@ Rails.application.routes.draw do
 
   resources :secrets
 
+  resources :likes
+
 end

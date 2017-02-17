@@ -3,14 +3,15 @@
 
 <p>
   <% @secrets.each do |secret| %>
-  <p>
-    <%= secret.content %>
-  </p>
-  <form class="" action="/secrets/<%= secret.id %>" method="post">
-    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-    <input name="_method" value="delete" type="hidden">
-    <button>Delete</button>
-  </form>
+    <p><%= secret.content %> | <%= secret.likes.count %> likes</p>
+    <form class="" action="/secrets/<%= secret.id %>" method="post">
+      <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+      <input name="_method" value="delete" type="hidden">
+      <button>Delete</button>
+    </form>
+    <% secret.likes do |like| %>
+      <%= like %>
+    <% end %>
   <% end %>
 </p>
 <h3>New Secret</h3>
